@@ -1,0 +1,13 @@
+{
+  "name": "hostelsync-root",
+  "version": "1.0.0",
+  "description": "HostelSync - Full MERN Stack Hostel Management System with Antigravity AI Orchestration",
+  "scripts": {
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "install:all": "npm install --prefix server && npm install --prefix client"
+  },
+  "keywords": ["mern", "hostelsync", "antigravity", "ai-agents"],
+  "author": "Antigravity Team",
+  "license": "ISC"
+}
