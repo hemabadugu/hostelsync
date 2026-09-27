@@ -144,8 +144,21 @@ function MainApp() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white relative">
       
+      {/* Dynamic Ambient Hostel Room Background for Logged-In Dashboards */}
+      {user && (
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+          <img 
+            src="/hostel-room-bg.jpg" 
+            alt="Hostel Room Background" 
+            className="w-full h-full object-cover object-center opacity-35 filter brightness-[0.65] contrast-[1.1] saturate-[1.2] transition-all duration-700"
+          />
+          {/* Subtle Dark Gradient Overlay for 100% Crisp Content Legibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0b0f19]/85 via-[#0b0f19]/75 to-[#0b0f19]/90 backdrop-blur-[2px]" />
+        </div>
+      )}
+
       {/* Top Navigation Bar */}
       <Navbar
         user={user}
@@ -158,7 +171,7 @@ function MainApp() {
       />
 
       {/* Main View Area */}
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {!user ? (
           <LoginPage onLoginSuccess={handleLoginSuccess} />
         ) : user.role === 'student' ? (
